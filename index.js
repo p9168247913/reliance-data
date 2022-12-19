@@ -133,6 +133,28 @@ app.post("/login", async(req, res) => {
     res.status(401).send(error);
   }
 });
+app.get("/users",async(req,res)=>{
+  try {
+    const { email,password,phonenumber} = req.body;
+    
+    const user = await UserModel.find({});
+   
+    res.status(200).send(user);
+  } catch (error) {
+    res.status(401).send(error);
+  }
+})
+app.post("/admin", async(req, res) => {
+  try {
+    const { name, email, role, password,phonenumber } = req.body;
+    let admin = new adminmodel({ name, email, role, password,phonenumber});
+   await admin.save();
+    res.send(user);
+  } catch (e) {
+    res.status(401).send("Invalid creditional");
+  }
+});
+
 mongoose.connect(process.env.db_url).then(() => {
   app.listen(8080, () => {
     console.log("server statrted on port 8080");
