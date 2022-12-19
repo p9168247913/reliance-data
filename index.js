@@ -99,7 +99,7 @@ app.post("/appliance", async (req, res) => {
     res.status(401).send("Invalid api");
   }
 });
-app.post("/telivison", async (req, res) => {
+app.post("/telivision", async (req, res) => {
   try {
     const { id, imglink,name,MRP,MRPx,brand,dealprice,dealpricex,discount,discountx,saveprce,saveprcex,cashback,img1,img2,img3} = req.body;
     let telivision =  new telivisionModel({id, imglink,name,MRP,MRPx,brand,dealprice,dealpricex,discount,discountx,saveprce,saveprcex,cashback,img1,img2,img3});
